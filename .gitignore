@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.vite/
+dist/
+build/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Database
+*.db
+sql_app.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Virtual Environment
+venv/
+env/
+.venv/
+.env/
+
+# Cesium cache
+.cesium/ 
