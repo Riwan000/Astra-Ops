@@ -156,41 +156,39 @@ async def chat(message: Dict):
                 detail="OpenRouter API key not configured"
             )
 
-        print(f"Sending request to OpenRouter with message: {message.get('text')}")
-        
-        response = post(
-            DEEPSEEK_API_URL,
-            headers={
-                "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
-                "Content-Type": "application/json",
-                "HTTP-Referer": "https://astraops.com",
-                "X-Title": "AstraOps AI"
-            },
-            json={
-                "model": "deepseek/deepseek-r1:free",
-                "messages": [
-                    {
-                        "role": "system",
-                        "content": "You are Astra AI, an advanced space operations assistant."
-                    },
-                    {"role": "user", "content": message.get("text", "")}
-                ]
-            },
-            timeout=30
-        )
-
-        if response.status_code != 200:
-            print(f"OpenRouter API error: {response.text}")
-            raise HTTPException(
-                status_code=response.status_code,
-                detail=f"OpenRouter API error: {response.text}"
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(
+                DEEPSEEK_API_URL,
+                headers={
+                    "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": "https://astraops.com",
+                    "X-Title": "AstraOps AI"
+                },
+                json={
+                    "model": "deepseek/deepseek-r1:free",
+                    "messages": [
+                        {
+                            "role": "system",
+                            "content": "You are Astra AI, an advanced space operations assistant."
+                        },
+                        {"role": "user", "content": message.get("text", "")}
+                    ]
+                }
             )
 
-        response_data = response.json()
-        return {
-            "response": response_data["choices"][0]["message"]["content"],
-            "timestamp": datetime.now().isoformat()
-        }
+            if response.status_code != 200:
+                print(f"OpenRouter API error: {response.text}")
+                raise HTTPException(
+                    status_code=response.status_code,
+                    detail=f"OpenRouter API error: {response.text}"
+                )
+
+            response_data = response.json()
+            return {
+                "response": response_data["choices"][0]["message"]["content"],
+                "timestamp": datetime.now().isoformat()
+            }
 
     except Exception as e:
         print(f"Chat error: {str(e)}")

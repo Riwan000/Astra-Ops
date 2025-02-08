@@ -1,5 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 
 interface Message {
   text: string;
@@ -83,7 +87,15 @@ const ChatBot: React.FC = () => {
                   : 'bg-gray-800 text-gray-100'
               }`}
             >
-              <div className="whitespace-pre-wrap">{message.text}</div>
+              <div className="whitespace-pre-wrap">
+                <ReactMarkdown 
+                  remarkPlugins={[remarkMath]}
+                  rehypePlugins={[rehypeKatex]}
+                  className="prose prose-invert max-w-none"
+                >
+                  {message.text}
+                </ReactMarkdown>
+              </div>
               <div className={`text-xs mt-2 ${
                 message.sender === 'user' ? 'text-blue-200' : 'text-gray-400'
               }`}>
