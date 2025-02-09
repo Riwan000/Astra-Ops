@@ -18,6 +18,7 @@ from models.database import get_db, DBUser
 from sqlalchemy.orm import Session
 from middleware.security import RateLimitMiddleware
 from requests import post
+from pydantic import BaseModel
 
 # Load environment variables
 load_dotenv()
@@ -234,6 +235,35 @@ async def register_user(
     db.refresh(db_user)
     
     return {"message": "User registered successfully"}
+
+class MissionResponse(BaseModel):
+    id: str
+    name: str
+    type: str
+    start_time: datetime
+    end_time: datetime
+    status: str
+
+@app.get("/api/missions", response_model=List[MissionResponse])
+async def get_missions():
+    return [
+        {
+            "id": "iss",
+            "name": "International Space Station",
+            "type": "satellite",
+            "start_time": datetime(1998, 11, 20),
+            "end_time": datetime(2028, 11, 20),
+            "status": "active"
+        },
+        {
+            "id": "perseverance",
+            "name": "Mars Perseverance Rover",
+            "type": "rover", 
+            "start_time": datetime(2020, 7, 30),
+            "end_time": datetime(2030, 7, 30),
+            "status": "active"
+        }
+    ]
 
 if __name__ == "__main__":
     import uvicorn

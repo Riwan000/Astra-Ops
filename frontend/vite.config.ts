@@ -6,7 +6,11 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    include: ['@cesium/engine', 'resium']
+    exclude: [
+      'Widgets/InfoBox/InfoBoxDescription.css',
+      'Workers/transferTypedArrayTest.js',
+      'Workers/createVerticesFromHeightmap.js'
+    ]
   },
   build: {
     chunkSizeWarningLimit: 3000
