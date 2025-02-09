@@ -23,7 +23,7 @@ interface Mission {
 
 Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmNzU2ZjkxMS1iMDU4LTQwZjAtOGU2YS01MjlmNDU5ZDVhOTQiLCJpZCI6MjczODgyLCJpYXQiOjE3MzkxMDQwMDd9.DM_iP80UZKFw6LWwF9iqLpHLnFFLDGxXhluJIMJMcnw';
 
-(window as any).CESIUM_BASE_URL = '/node_modules/cesium/Build/Cesium/';
+(window as any).CESIUM_BASE_URL = '/cesium/';
 
 const CesiumViewer: React.FC<{ satellites?: Satellite[], missions?: Mission[] }> = ({ satellites = [], missions = [] }) => {
   const { viewer } = useCesium();
