@@ -14,7 +14,7 @@ jobs:
         image: postgres:13
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: 1234
           POSTGRES_DB: spaceops_test
         ports:
           - 5432:5432
@@ -40,7 +40,7 @@ jobs:
     
     - name: Run tests
       env:
-        DATABASE_URL: postgresql://postgres:postgres@localhost/spaceops_test
+        DATABASE_URL: postgresql://postgres:1234@localhost/spaceops_test
         NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
       run: |
