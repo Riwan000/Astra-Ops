@@ -13,7 +13,6 @@
     "@cesium/engine": "^14.0.0",
     "@types/nosleep.js": "^0.10.0",
     "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react": "^4.3.4",
     "cesium": "^1.126.0",
     "katex": "^0.16.21",
     "nosleep.js": "^0.12.0",
@@ -29,6 +28,7 @@
     "@eslint/js": "^9.17.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.0.0",
@@ -36,6 +36,10 @@
     "globals": "^15.14.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vite-plugin-cesium": "^1.2.12"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
