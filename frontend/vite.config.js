@@ -5,7 +5,9 @@ import cesium from 'vite-plugin-cesium';
 export default defineConfig({
   plugins: [
     react({
-      jsxRuntime: 'classic'
+      jsxRuntime: 'classic',
+      jsxImportSource: 'react',
+      include: '**/*.tsx'
     }),
     cesium()
   ],
