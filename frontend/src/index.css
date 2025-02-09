@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add to the top of the file */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
@@ -34,11 +40,18 @@ a:hover {
 }
 
 body {
+  background: #0a0e1a; /* Fallback color */
+  overflow-y: auto; /* Allow vertical scroll */
+  overflow-x: hidden; /* Prevent horizontal scroll */
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  overflow-x: hidden;
   width: 100vw;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 h1 {
@@ -78,14 +91,20 @@ button:focus-visible {
   }
 }
 
-/* Cosmic Background */
+/* Full cosmic background */
 .cosmic-bg {
-  background: linear-gradient(135deg, #0a0e1a 0%, #1a1a2e 50%, #16213e 100%);
+  background: linear-gradient(
+    135deg,
+    #0a0e1a 0%,
+    #1a1a2e 30%,
+    #16213e 70%,
+    #0a0e1a 100%  /* Added to prevent color cutoff */
+  );
+  min-width: 100vw;
   min-height: 100vh;
+  background-attachment: fixed;  /* Keep gradient fixed during scroll */
+  background-size: cover;
   position: relative;
-  overflow-x: hidden;
-  z-index: 1;
-  width: 100vw;
 }
 
 /* Animated Stars */
@@ -147,5 +166,10 @@ button, input, a, .interactive, .cesium-viewer-toolbar, .cesium-viewer-animation
 
 .cesium-viewer {
   height: 100vh !important;
+  width: 100vw !important;
+}
+
+/* Update Cesium viewer */
+.cesium-viewer {
   width: 100vw !important;
 }

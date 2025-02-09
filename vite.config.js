@@ -7,14 +7,7 @@ export default defineConfig({
     react(),
     cesium()
   ],
-  optimizeDeps: {
-    include: [
-      '@cesium/engine',
-      '@cesium/widgets',
-      'resium'
-    ]
-  },
   build: {
     assetsInlineLimit: 0
   }
-}); 
+});

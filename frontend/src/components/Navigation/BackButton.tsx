@@ -13,4 +13,4 @@ export const BackButton = () => {
       <FiArrowLeft className="w-6 h-6 text-purple-400" />
     </button>
   ) : null;
-}; 
+};

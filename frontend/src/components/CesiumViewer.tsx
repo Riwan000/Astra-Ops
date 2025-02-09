@@ -40,6 +40,15 @@ const CesiumViewer: React.FC<{ satellites?: Satellite[], missions?: Mission[] }>
       container.style.pointerEvents = 'none';
       container.style.position = 'relative';
       container.style.zIndex = '0';
+
+      // Add camera focus on ISS test position
+      viewer.camera.flyTo({
+        destination: Cartesian3.fromDegrees(
+          -80.6,  // Kennedy Space Center longitude
+          28.5,   // Kennedy Space Center latitude
+          2000000 // Camera altitude
+        )
+      });
     }
   }, [viewer]);
 

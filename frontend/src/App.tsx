@@ -10,13 +10,15 @@ import 'cesium/Build/Cesium/Widgets/widgets.css';
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/operations" element={<Operations />} />
-          <Route path="/assistant" element={<Assistant />} />
-        </Routes>
-      </Layout>
+      <div className="w-screen h-screen">
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/operations" element={<Operations />} />
+            <Route path="/assistant" element={<Assistant />} />
+          </Routes>
+        </Layout>
+      </div>
     </Router>
   );
 }

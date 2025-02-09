@@ -4,7 +4,7 @@ import SpaceData from '../components/SpaceData';
 
 const Home: React.FC = () => {
   return (
-    <div className="space-y-6">
+    <div className="w-full min-h-screen overflow-x-hidden space-y-6 p-8">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-white mb-4">Welcome to AstraOps</h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
