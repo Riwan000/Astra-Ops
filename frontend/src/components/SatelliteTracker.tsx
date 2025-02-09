@@ -53,7 +53,7 @@ const SatelliteTracker: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-700">
+    <div className="h-full bg-black/30 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-700">
       <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
         🛰️ Satellite Tracker
         {wsConnected && <span className="text-sm font-normal bg-green-500/20 px-2 py-1 rounded">Live</span>}

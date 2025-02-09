@@ -44,7 +44,7 @@ const CesiumViewer: React.FC<{ satellites?: Satellite[], missions?: Mission[] }>
   }, [viewer]);
 
   return (
-    <div className="h-screen w-full relative space-panel">
+    <div className="h-full w-screen relative space-panel">
       <div className="absolute top-4 left-4 bg-space-dark/80 backdrop-blur-sm p-4 rounded-xl shadow-xl z-[100]">
         <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
           <SatelliteIcon />

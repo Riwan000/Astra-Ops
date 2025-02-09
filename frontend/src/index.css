@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add to the top of the file */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -30,6 +37,8 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100vw;
 }
 
 h1 {
@@ -71,15 +80,12 @@ button:focus-visible {
 
 /* Cosmic Background */
 .cosmic-bg {
-  background: linear-gradient(
-    135deg,
-    #0a0e1a 0%,
-    #1a1a2e 50%,
-    #16213e 100%
-  );
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
   position: relative;
   overflow-x: hidden;
   z-index: 1;
+  width: 100vw;
 }
 
 /* Animated Stars */
